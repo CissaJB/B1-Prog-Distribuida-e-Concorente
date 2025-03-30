@@ -1,44 +1,77 @@
-# TrabalhoB1 Programação Distribuida e Concorrente
+# TrabalhoB1 Programação Distribuída e Concorrente
 
-Questão 01
-• A) Deve-se criar uma aplicação que modele o funcionamento de sua conta bancária. Esta conta será
-o recurso compartilhado e deverá ser acessada/modificada por três threads: a thread AEsperta, a
-thread AEconomica e a thread AGastadora, concorrentemente.
-o 1. AGastadora: esta thread (de atitude voraz) deverá, a cada 3000 milesegundos verificar se
-há saldo suficiente, e retirar 10 reais da sua conta. Esta thread deve disputar por dinheiro, com
-as demais threads, concorrentemente.
-o 2. AEsperta: esta thread será mais comedido que a anterior: somente a cada 6000
-milesegundos, irá verificar o seu saldo. Mas não se engane: se houver saldo suficiente, esta
-thread irá retirar 50 reais da sua conta. Esta thread deve disputar com outras threads,
-concorrentemente.
-o 3. AEconomica: de todas as threads, esta será a que mais prezará por você e suas finanças.
-Ela irá verificar o saldo de sua conta apenas a cada 12000 milesegundos. Se houver fundos, a
-thread econômica irá tentar retirar apenas 5 reais da sua conta. Esta thread deve disputar com
-outras threads, concorrentemente.
-• B) A classe Conta (recurso compartilhado) deverá ter pelo menos:
-o Os seguintes atributos: número da conta, titular da conta e saldo.
-o Quando necessário, implemente também algumas regras básicas de integridade (número de
-conta negativos, etc.).
-o Finalmente, implemente os principais métodos que vão manipular o saldo da conta: deposito e
-saque. Inicie o saldo (recurso compartilhado) da conta depositando uma quantia de R$
-1.000,00.
-• DICA: Faça um esboço de um diagrama inicial de classes para lhe ajudar a pensar melhor antes
-de ir diretamente para o código. O diagrama ajuda você a visualizar quantas classes precisará e
-como elas se relacionam.
-• IMPORTANTE: Sempre que uma thread movimentar fundos da sua conta, o sistema deve informar
-não apenas qual thread efetuou a operação (saque ou depósito), mas, principalmente, qual é o seu
-saldo atual final (após o saque). Isso permitirá que você acompanhe a situação financeira em
-tempo real.
-• LEMBRE-SE: Nesta aplicação, não defina prioridades (todos devem ter as mesmas chances).
-Além disso, não permita que haja corrupção de dados (ou seja, cada thread deve conseguir retirar
-sua quantia sem ser interrompido por outro thread materialista). Use synchronized ou outro
-modelo, por exemplo.
-• C) Quando a conta estiver com saldo zero, todas as threads deverão ser colocados em estado de
-espera. Ao ser colocado em espera, cada thread deverá imprimir a quantidade de saques efetuados e
-o valor total retirado da conta. Execute e veja o resultado
-• D) Acrescente agora mais uma thread de nome APatrocinadora. Esta thread deverá
-depositar 100 reais sempre que a conta estiver zerada. Veja que este thread será
-“produtora”. E as demais serão “consumidoras”. (verifique a possibilidade de usar wait e
-notifyAll ou outro modelo, por exemplo)
-• E) Fica a critério do grupo se irá ou não usar GUI.
+## Questão 01
 
+### A) Criação de uma aplicação
+Deve-se criar uma aplicação que modele o funcionamento de sua conta bancária. Esta conta será o recurso compartilhado e deverá ser acessada/modificada por três threads: a thread **AEsperta**, a thread **AEconomica** e a thread **AGastadora**, concorrentemente.
+
+1. **AGastadora**:  
+   - Esta thread (de atitude voraz) deverá, a cada 3000 milissegundos, verificar se há saldo suficiente e retirar 10 reais da sua conta.  
+   - Deve disputar por dinheiro com as demais threads, concorrentemente.
+
+2. **AEsperta**:  
+   - Mais comedida que a anterior, esta thread verificará o saldo apenas a cada 6000 milissegundos.  
+   - Caso haja saldo suficiente, retirará 50 reais da sua conta.  
+   - Deve disputar com outras threads, concorrentemente.
+
+3. **AEconomica**:  
+   - Preza mais por você e suas finanças. Verificará o saldo apenas a cada 12000 milissegundos.  
+   - Caso haja fundos, tentará retirar apenas 5 reais da conta.  
+   - Deve disputar com outras threads, concorrentemente.
+
+---
+
+### B) Classe Conta (recurso compartilhado)
+
+A classe deve conter pelo menos:  
+- **Atributos**:
+  - Número da conta;
+  - Titular da conta;
+  - Saldo.
+
+- **Regras básicas de integridade**:
+  - Tratar valores inválidos (por exemplo, números de conta negativos).  
+
+- **Métodos principais**:
+  - `deposito`: para adicionar saldo;
+  - `saque`: para retirar saldo.
+
+> **Nota:** Inicie o saldo (recurso compartilhado) da conta depositando uma quantia de R$ 1.000,00.
+
+> **Dica:** Faça um esboço de um diagrama inicial de classes para visualizar melhor quantas classes serão necessárias e como elas se relacionam.
+
+---
+
+### IMPORTANTE
+
+Sempre que uma thread movimentar fundos da sua conta, o sistema deve:  
+- Informar qual thread efetuou a operação (saque ou depósito);  
+- Informar o saldo atual final (após o saque), permitindo acompanhar a situação financeira em tempo real.
+
+> **Lembre-se:**  
+> - Não defina prioridades (todas as threads devem ter as mesmas chances);  
+> - Não permita corrupção de dados (use `synchronized` ou outro modelo apropriado).  
+
+---
+
+### C) Conta com saldo zerado
+- Quando a conta estiver com saldo zero:  
+  - Todas as threads devem ser colocadas em estado de espera.  
+  - Ao serem colocadas em espera, cada thread deve imprimir:  
+    - A quantidade de saques efetuados;  
+    - O valor total retirado da conta.  
+
+Execute e veja os resultados.
+
+---
+
+### D) Acrescentar a thread **APatrocinadora**
+- Essa thread deve:  
+  - Depositar 100 reais sempre que a conta estiver zerada.  
+  - Ser uma “produtora”, enquanto as demais são “consumidoras”.  
+  - Avaliar o uso de `wait` e `notifyAll` ou outro modelo apropriado.
+
+---
+
+### E) Uso de GUI
+- Fica a critério do grupo decidir se usará ou não uma interface gráfica (GUI).
