@@ -4,7 +4,7 @@ import numpy as np
 
 MAX_THREADS = 4
 
-array = np.random.rand(1, 3_000_000)[0]
+array = np.random.randint(-2**31, 2**31, size=3_000_000)
 sum_arr = [0 for _ in range(MAX_THREADS)]
 part = 0
 
