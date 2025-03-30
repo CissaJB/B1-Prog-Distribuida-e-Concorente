@@ -1,8 +1,6 @@
 ## Questão 02
 
-Uma Universidade precisa saber quais são os alunos que estão se formando no semestre para enviar estas informações para:  
-- A empresa de eventos (organização da festa de formatura);  
-- A impressão dos diplomas.  
+Uma Universidade precisa saber quais são os alunos que estão se formando no semestre para enviar estas informações para a empresa de eventos (organização da festa de formatura) e a impressão dos diplomas.
 
 Para isso, o setor de Tecnologia da Informação da Universidade preparou um arquivo (no formato `.txt`) para cada curso de graduação contendo os dados de todos os alunos do curso.  
 
