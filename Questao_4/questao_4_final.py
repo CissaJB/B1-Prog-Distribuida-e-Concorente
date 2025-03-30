@@ -3,7 +3,7 @@ import numpy as np
 import time
 
 MAX_THREADS = 4  
-array = np.random.rand(1, 10_000_000)[0]
+array = np.random.randint(-2**31, 2**31, size=3_000_000)
 
 def sum_array(start, end):
     return np.sum(array[start:end])
