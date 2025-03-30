@@ -2,7 +2,7 @@
 
 ## CC7M
 ### Grupo 3
-- Beastriz Brito
+- Beatriz Brito
 - Cecilia Barros
 - Gabriel de Oliveira
 - Maria Luiza Pinheiro
