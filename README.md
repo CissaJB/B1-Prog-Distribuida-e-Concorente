@@ -1,2 +1,2 @@
-# Trabalho1BProgDistrieConc
-Repositório para armazenar o trabalho do 1° Bimestre 
+# TrabalhoB1 Programação Distribuida e Concorrente
+
